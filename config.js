@@ -1,2 +1,2 @@
-// Public project URL and publishable/anon key ONLY. Never put service_role keys here.
-window.ETHAN_KIDS_CONFIG = { supabaseUrl: "", supabasePublishableKey: "" };
+// Public Ethan ID Supabase configuration; never include service-role keys.
+window.ETHAN_KIDS_CONFIG={supabaseUrl:'https://hrymakhatxjitbgpdbjk.supabase.co',supabasePublishableKey:'sb_publishable_lZk0iM8AuN1ITiclDFCmZA_Sn35Fek0',ssoFunctionUrl:'https://hrymakhatxjitbgpdbjk.supabase.co/functions/v1/ethan-sso',hubUrl:'https://hub.ethandigitalacademy.org'};

@@ -1,0 +1,27 @@
+/* Ethan Kids v7 — distinct activity illustrations and calmer, child-friendly environments */
+:root{--kids-ink:#183153;--kids-blue:#1968c8;--kids-yellow:#ffcd4b}
+body:not(.auth-page) header{align-items:flex-start;gap:12px;box-shadow:0 4px 18px #15366a10}
+body:not(.auth-page) header .brand{font-size:clamp(1rem,1.6vw,1.25rem);margin:4px 0 8px}
+body:not(.auth-page) .academy-nav{gap:8px!important;align-items:stretch}
+body:not(.auth-page) .nav-group{flex:1 1 200px;box-shadow:0 3px 0 #dce8f4;min-width:0}
+body:not(.auth-page) header .academy-nav a{font-size:clamp(12px,1vw,14px);min-height:42px;transition:background .15s,transform .15s}
+body:not(.auth-page) header .academy-nav a:hover{transform:translateY(-2px)}
+body:not(.auth-page) .hero{grid-template-columns:minmax(0,1.15fr) minmax(230px,.85fr)!important;align-items:center;gap:clamp(16px,3vw,40px);min-height:350px;isolation:isolate}
+body:not(.auth-page) .hero>div:first-child{min-width:0;position:relative;z-index:1}
+body:not(.auth-page) .hero h1{overflow-wrap:break-word;text-wrap:balance}
+body:not(.auth-page) .hero p{max-width:56ch}
+.kids-hero-art{min-width:0;width:100%;align-self:stretch;display:grid;place-items:center}
+.kids-hero-art:before{display:none!important}
+.kids-scene{position:relative;isolation:isolate;width:min(100%,370px);min-height:265px;display:grid;place-items:center;overflow:hidden;border:4px solid #fff9;border-radius:32px;background:linear-gradient(150deg,#fff8c7 0%,#c5f3ff 54%,#d9f9df 100%);box-shadow:0 12px 0 #162f6229,0 22px 36px #142f6126}
+.scene-character{font-size:clamp(88px,12vw,132px);filter:drop-shadow(0 12px 2px #153a6225);line-height:1;transform:rotate(-5deg);z-index:2}
+.scene-orbit{position:absolute;right:12%;top:17%;font-size:clamp(35px,5vw,58px);transform:rotate(13deg);z-index:1}
+.scene-sun{position:absolute;left:10%;top:10%;font-size:32px}
+.scene-ground{position:absolute;bottom:44px;left:0;right:0;text-align:center;color:#14936d;font-size:24px;letter-spacing:16px}
+.scene-caption{position:absolute;bottom:10px;left:12px;right:12px;text-align:center;background:#fffef1e8;border-radius:99px;padding:6px 9px;font-size:12px;font-weight:900;color:#23416c}
+body:not(.auth-page) .kid-lesson,body:not(.auth-page) .learning-map article{box-shadow:0 5px 0 #dce8fa;border-radius:22px}
+body:not(.auth-page) .kid-lesson{max-width:100%;overflow-wrap:anywhere}
+body:not(.auth-page) .kid-lesson :is(button,a,input,select,textarea):focus-visible,body:not(.auth-page) .academy-nav a:focus-visible{outline:3px solid #f5a500;outline-offset:3px}
+body:not(.auth-page) .learning-map .art{display:grid;place-items:center;width:70px;height:70px;border-radius:20px;background:#e7f4ff;border:2px solid #cce7ff;font-size:38px}
+body:not(.auth-page) .learning-map article:nth-child(4n+2) .art{background:#e3f9e8}body:not(.auth-page) .learning-map article:nth-child(4n+3) .art{background:#fff0c5}body:not(.auth-page) .learning-map article:nth-child(4n) .art{background:#ffe6f4}
+@media(max-width:800px){body:not(.auth-page) .hero{grid-template-columns:1fr!important;min-height:0}.kids-scene{min-height:225px}.scene-character{font-size:96px}body:not(.auth-page) .nav-group{flex:1 1 160px}}
+@media(max-width:480px){body:not(.auth-page) .hero{padding:18px!important}.kids-scene{min-height:210px}.scene-character{font-size:88px}body:not(.auth-page) header .academy-nav{grid-template-columns:1fr 1fr!important}.nav-group{padding:6px!important}body:not(.auth-page) header .academy-nav a{font-size:12px;padding:8px}}

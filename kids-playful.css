@@ -1,0 +1,23 @@
+
+/* Ethan Kids v5: playful, legible and responsive design system */
+:root{--kid-ink:#25345a;--kid-blue:#4355cf;--kid-mint:#dffbf1;--kid-bg:#fffaf1;--kid-line:#e7e1f5}
+body:not(.auth-page){background:radial-gradient(circle at 10% 8%,#fff0b7 0,transparent 22%),radial-gradient(circle at 93% 26%,#e9ddff 0,transparent 24%),#fffaf1;color:#25345a}
+body:not(.auth-page) header{background:#fffefb;border-bottom:3px solid #ffe1a0;box-shadow:0 6px 24px #6a56aa0c}
+body:not(.auth-page) .brand{color:#3546b2}body:not(.auth-page) .brand b{color:#ed5091}
+body:not(.auth-page) header nav{gap:7px}body:not(.auth-page) header nav a{background:#f3f0ff;border:1px solid #e8e0ff;border-radius:999px;color:#433c7d;font-size:13px;padding:10px 13px;transition:background .16s,transform .16s}
+body:not(.auth-page) header nav a:hover,body:not(.auth-page) header nav a[aria-current=page]{background:#ffe08b;color:#49305a;border-color:#ffc956}
+body:not(.auth-page) main{max-width:1240px}
+body:not(.auth-page) .hero{position:relative;overflow:hidden;background:linear-gradient(115deg,#6850d6 0%,#865ce0 48%,#e268a7 100%)!important;border:4px solid #fff;box-shadow:0 14px 35px #5a39942b;border-radius:32px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(220px,.8fr);gap:24px;align-items:center;min-height:270px;padding:clamp(22px,4vw,46px)!important}
+body:not(.auth-page) .hero:before{content:'✦';position:absolute;right:18px;top:0;font-size:100px;color:#ffffff24;pointer-events:none}
+body:not(.auth-page) .hero h1{font-size:clamp(2rem,4vw,3.5rem);line-height:1.12;letter-spacing:-.035em;margin:.4em 0}body:not(.auth-page) .hero p{font-size:clamp(1rem,1.5vw,1.15rem);line-height:1.65;max-width:60ch}
+body:not(.auth-page) .hero .kid-chip,body:not(.auth-page) .hero .pill{background:#fff2ad;color:#49345b;border-radius:99px;padding:8px 14px;display:inline-block;font-weight:900;letter-spacing:.025em}
+.kids-hero-art{display:flex;align-items:center;justify-content:center;min-width:0;position:relative;isolation:isolate}.kids-hero-art:before{content:'';position:absolute;inset:8% 2%;background:#fff6cf;border-radius:40% 60% 50% 40%;transform:rotate(-8deg);z-index:-1}.kids-hero-art img{width:min(100%,370px);max-height:265px;object-fit:contain;filter:drop-shadow(0 12px 9px #3d277533)}
+body:not(.auth-page) .kid-card,body:not(.auth-page) .cards article,body:not(.auth-page) .showcase-card{border:2px solid #e9e0fa;background:#fff;border-radius:23px;box-shadow:0 8px 0 #ebe4fb,0 14px 28px #5a39940a;transition:transform .15s,box-shadow .15s}
+body:not(.auth-page) .kid-card:hover,body:not(.auth-page) .cards article:hover,body:not(.auth-page) .showcase-card:hover{transform:translateY(-3px);box-shadow:0 11px 0 #ebe4fb,0 18px 30px #5a399414}
+body:not(.auth-page) .kid-card:nth-child(4n+1){border-top:6px solid #ffb74d}body:not(.auth-page) .kid-card:nth-child(4n+2){border-top:6px solid #69c5e9}body:not(.auth-page) .kid-card:nth-child(4n+3){border-top:6px solid #fa80b1}body:not(.auth-page) .kid-card:nth-child(4n){border-top:6px solid #76d9ad}
+body:not(.auth-page) .kid-panel{background:#e9f9ff;border:2px solid #b7e6f8;border-radius:24px;padding:clamp(18px,3vw,30px)}body:not(.auth-page) .kid-panel:nth-of-type(2n){background:#fff0f7;border-color:#ffd0e5}
+body:not(.auth-page) button,body:not(.auth-page) a.primary{min-height:42px}body:not(.auth-page) .kid-panel button{background:#5445bf;border:2px solid #4334a4;border-radius:14px;font-weight:800;padding:11px 17px}body:not(.auth-page) .kid-panel button:hover{background:#3e319d}
+body:not(.auth-page) :focus-visible{outline:4px solid #ffb400;outline-offset:4px}body:not(.auth-page) .kid-kicker{color:#6548bd}body:not(.auth-page) .kid-progress span{background:#e85b9d}
+body:not(.auth-page) footer{background:#f0e9ff;color:#3c3772;border-top:3px solid #dfd0ff}
+@media(max-width:780px){body:not(.auth-page) .hero{grid-template-columns:1fr;gap:12px}body:not(.auth-page) .hero .kids-hero-art{max-width:260px;margin:0 auto}body:not(.auth-page) header nav{width:100%;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:thin}body:not(.auth-page) header nav a{white-space:nowrap}body:not(.auth-page) .hero{border-radius:23px}}
+@media(prefers-reduced-motion:reduce){body:not(.auth-page) .kid-card,body:not(.auth-page) header nav a{transition:none!important}}

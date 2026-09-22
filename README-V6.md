@@ -1,0 +1,1 @@
+Ethan Kids v6: grouped navigation on all pages; four new independent pages: paths, logic, inventor, brain. Existing activities and original JS remain. Browser-only idea notes; no account required. Upload all files and assets together. Interactive puzzle answers are checked in browser; no claim of full browser audit.

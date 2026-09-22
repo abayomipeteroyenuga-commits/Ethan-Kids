@@ -1,0 +1,1 @@
+Ethan Kids v7: replaces repeated hero logo illustration with page-specific child-friendly activity scenes; restructures navigation and learning environments. Original academy activities and scripts preserved. Visual browser and sign-in tests are still required.

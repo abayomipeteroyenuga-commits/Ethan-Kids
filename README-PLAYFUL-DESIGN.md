@@ -1,0 +1,1 @@
+Ethan Kids v5 playful visual refresh. All existing HTML and JS are retained. kids-playful.css is included last in each HTML head; existing illustration reused on learning-page heroes. Verify login and all interactive activities after deployment.

@@ -1,0 +1,1 @@
+Ethan Kids v8: five new independent labs (blocks, ai, safety, data, animation), 25 modules and 25 missions, child-friendly themed panels, shared discovery links and local-only notes. No AI API, no third-party accounts, no personal data collection. Existing pages and sign-in unchanged. Self-marked exploration is not automatic grading.

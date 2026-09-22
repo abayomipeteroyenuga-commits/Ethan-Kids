@@ -1,0 +1,1 @@
+Ethan Kids v11: unified responsive navigation and children-friendly visual system across all 26 independent pages. Includes prior SEO metadata and existing application scripts. Upload all files together. No live-browser or adult sign-in audit has been performed.

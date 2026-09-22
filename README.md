@@ -8,7 +8,3 @@ This build replaces the previous separate Ethan Kids sign-in with the existing E
 4. Sign into Hub, click Ethan Kids, and test the handoff and sign-out. Kids progress remains local to each browser.
 
 IMPORTANT SECURITY LIMITATIONS: The existing Hub SSO function returns bearer session credentials when a ticket is exchanged. Tickets are currently reusable for their 60-second lifetime and are passed in the URL; avoid treating this as a production-hardened child-safety/SSO solution until a server-side single-use handoff, strict allowed origins/targets and dedicated authorization rules are implemented. The Kids frontend checks a valid, confirmed Ethan ID, NOT an adult's identity or role. Do not claim adult-only enforcement; adult supervision and server-enforced authorization are needed before public launch. Static assets on public hosting cannot be secured by client-side route guards alone.
-
-
-## Ethan ID integration v9
-Use the existing Ethan Hub Supabase project, not a separate Kids project. Follow `ETHAN-HUB/KIDS-INTEGRATION-DEPLOY.md` in the combined ZIP. Adult access is granted only by a trusted administrator in the `ethan_kids_adults` table.

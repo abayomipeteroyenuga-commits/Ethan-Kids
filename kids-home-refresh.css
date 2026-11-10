@@ -26,3 +26,9 @@
 .ek-hero-art{isolation:isolate}
 @media(max-width:850px){.ek-hero-art>img{min-height:300px;max-height:420px}}
 @media(max-width:560px){.ek-hero-art>img{min-height:235px;max-height:310px}}
+
+/* Reliable live hero photograph */
+.ek-hero-art{display:block!important;position:relative!important;width:100%;min-height:0!important;height:clamp(300px,38vw,500px)!important;overflow:hidden!important;background:#edf5fc!important}
+.ek-hero-art>img{display:block!important;visibility:visible!important;opacity:1!important;width:100%!important;height:100%!important;min-height:0!important;max-height:none!important;object-fit:cover!important;object-position:center 42%!important;border-radius:inherit!important}
+@media(max-width:850px){.ek-hero-art{height:clamp(260px,62vw,430px)!important}}
+@media(max-width:560px){.ek-hero-art{height:280px!important}}

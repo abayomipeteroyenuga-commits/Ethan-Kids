@@ -1,1 +1,48 @@
-(()=>{'use strict';const cfg=window.ETHAN_KIDS_CONFIG||{},hub=cfg.hubUrl||'https://hub.ethandigitalacademy.org',page=location.pathname.split('/').pop()||'index.html';const status=document.getElementById('auth-status');const report=m=>{if(status)status.textContent=m};const redirect=()=>location.replace(hub);if(!cfg.supabaseUrl||!cfg.supabasePublishableKey||!window.supabase){report('Ethan ID is unavailable. Return to Ethan Hub.');document.documentElement.classList.add('adult-verified');return;}const sb=window.supabase.createClient(cfg.supabaseUrl,cfg.supabasePublishableKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:false}});async function start(){try{const u=new URL(location.href),ticket=u.searchParams.get('ethan_sso');if(ticket){history.replaceState({},'',u.pathname+u.hash);const r=await fetch(cfg.ssoFunctionUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'exchange',target:'kids',ticket})});const result=await r.json();if(!r.ok||!result.access_token||!result.refresh_token)throw Error('Ethan ID handoff failed. Please open Ethan Kids from the Hub.');const {error}=await sb.auth.setSession({access_token:result.access_token,refresh_token:result.refresh_token});if(error)throw error;}const {data:{user},error}=await sb.auth.getUser();if(error||!user||!(user.email_confirmed_at||user.confirmed_at)){if(page==='index.html'){document.documentElement.classList.add('adult-verified');report('Sign in to Ethan ID at the Hub, then open Ethan Kids from your dashboard.');return;}redirect();return;}const {data:{session}}=await sb.auth.getSession();const check=await fetch(cfg.ssoFunctionUrl,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+session.access_token},body:JSON.stringify({action:'verify'})});if(!check.ok){await sb.auth.signOut();if(page==='index.html'){document.documentElement.classList.add('adult-verified');report('This Ethan ID has not been approved for adult access.');return;}redirect();return;}if(page==='index.html'){location.replace('kids.html');return;}document.documentElement.classList.add('adult-verified');const name=document.getElementById('adult-email');if(name)name.textContent=user.email||'Ethan ID account';}catch(e){console.warn(e);if(page==='index.html'){document.documentElement.classList.add('adult-verified');report(e.message||'Unable to connect. Open Ethan Kids from the Hub.');}else redirect();}}document.getElementById('adult-signout')?.addEventListener('click',async()=>{await sb.auth.signOut();redirect()});document.getElementById('ethan-hub-link')?.addEventListener('click',redirect);start();})();
+/* Ethan Kids public learning access.
+   Navigation inside Ethan Kids must never force a visitor to Ethan Hub.
+   Hub is opened only when a visitor explicitly selects the Hub link. */
+(()=>{'use strict';
+const cfg=window.ETHAN_KIDS_CONFIG||{};
+const page=location.pathname.split('/').pop()||'index.html';
+const status=document.getElementById('auth-status');
+const report=m=>{if(status)status.textContent=m};
+if(!cfg.supabaseUrl||!cfg.supabasePublishableKey||!window.supabase){
+  report('You can continue exploring Ethan Kids. Ethan ID is optional for public learning activities.');
+  document.documentElement.classList.add('kids-public-access');
+  return;
+}
+const sb=window.supabase.createClient(cfg.supabaseUrl,cfg.supabasePublishableKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:false}});
+async function start(){
+ try{
+  const u=new URL(location.href),ticket=u.searchParams.get('ethan_sso');
+  if(ticket&&cfg.ssoFunctionUrl){
+   history.replaceState({},'',u.pathname+u.hash);
+   const r=await fetch(cfg.ssoFunctionUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'exchange',target:'kids',ticket})});
+   const result=await r.json();
+   if(r.ok&&result.access_token&&result.refresh_token){
+    const {error}=await sb.auth.setSession({access_token:result.access_token,refresh_token:result.refresh_token});
+    if(error)throw error;
+   }else report('Ethan ID could not be connected. You can still explore public learning activities.');
+  }
+  const {data:{user}}=await sb.auth.getUser();
+  if(!user){
+   document.documentElement.classList.add('kids-public-access');
+   report('Welcome! You can explore Ethan Kids without signing in.');
+   return;
+  }
+  document.documentElement.classList.add('kids-public-access');
+  const email=document.getElementById('adult-email');
+  if(email)email.textContent=user.email||'Ethan ID account';
+ }catch(e){
+  console.warn('Optional Ethan ID connection:',e);
+  document.documentElement.classList.add('kids-public-access');
+  report('Ethan ID is temporarily unavailable. You can continue exploring Ethan Kids.');
+ }
+}
+document.getElementById('adult-signout')?.addEventListener('click',async()=>{
+ try{await sb.auth.signOut();report('Signed out. You can continue exploring Ethan Kids.');}
+ catch(e){console.warn(e);report('Could not sign out just now.');}
+});
+document.getElementById('ethan-hub-link')?.addEventListener('click',()=>{location.href=cfg.hubUrl||'https://hub.ethandigitalacademy.org';});
+start();
+})();
